@@ -3,7 +3,6 @@ class TabLink {
     // assign this.tabElement to the tabElement DOM reference
     // this.tabElement;
     this.tabElement = tabElement;
-    console.log(tabElement);
     // Get the `data-tab` value from this.tabElement and store it here
     // this.tabData = ; 
     this.tabData = tabElement.dataset.tab;
@@ -24,7 +23,7 @@ class TabLink {
 
      // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class. 
     // this.cards = Array.from(this.cards).map();
-    this.cards = Array.from(this.cards).map(el => new TabCard(el))
+    this.cards = Array.from(this.cards).map(card => new TabCard(card))
     // Add a click event that invokes this.selectTab
     // this.tabElement.addEventListener();
     this.tabElement.addEventListener("click", () => this.selectTab());
@@ -37,13 +36,13 @@ class TabLink {
     const tabs = document.querySelectorAll(".tab");
     // Iterate through the NodeList removing the .active-tab class from each element
     // tabs.forEach()
-    tabs.forEach(el => el.classList.remove("active-tab"));
+    tabs.forEach(tab => tab.classList.remove("active-tab"));
     // Select all of the elements with the .card class on them
     // const cards = ;
     const cards = document.querySelectorAll(".card");
     // Iterate through the NodeList setting the display style each one to 'none'
     // cards.forEach()
-    cards.forEach(el => el.style.display = "none");
+    cards.forEach(card => card.style.display = "none");
     // Add a class of ".active-tab" to this.tabElement
     // this.tabElement;
     this.tabElement.classList.add("active-tab");
@@ -75,4 +74,4 @@ class TabCard {
 - In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
 
 */
-let tabs = document.querySelectorAll(".tab").forEach(el => new TabLink(el));
+let tabs = document.querySelectorAll(".tab").forEach(tab => new TabLink(tab));
